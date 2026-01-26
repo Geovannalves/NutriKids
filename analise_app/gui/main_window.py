@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from gui.cadastro_crianca import CadastroCrianca
 from gui.lista_criancas import ListaCriancas
+from gui.acompanhamento import Acompanhamento
 
 class MainWindow(ctk.CTk):
     def __init__(self):
@@ -28,8 +29,19 @@ class MainWindow(ctk.CTk):
             command=self.abrir_lista
         ).pack(pady=10)
 
+        ctk.CTkButton(
+            self,
+            text="Novo Acompanhamento",
+            command=self.abrir_acompanhamento
+        ).pack(pady=10)
+
     def abrir_cadastro(self):
         CadastroCrianca(self)
 
     def abrir_lista(self):
         ListaCriancas(self)
+
+    def abrir_acompanhamento(self):
+        Acompanhamento(self)
+
+        
