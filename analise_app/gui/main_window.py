@@ -2,6 +2,8 @@ import customtkinter as ctk
 from gui.cadastro_crianca import CadastroCrianca
 from gui.lista_criancas import ListaCriancas
 from gui.acompanhamento import Acompanhamento
+from gui.historico import Historico
+
 
 class MainWindow(ctk.CTk):
     def __init__(self):
@@ -35,6 +37,14 @@ class MainWindow(ctk.CTk):
             command=self.abrir_acompanhamento
         ).pack(pady=10)
 
+        ctk.CTkButton(
+            self,
+            text="Ver Histórico",
+            command=self.abrir_historico
+        ).pack(pady=10)
+
+
+
     def abrir_cadastro(self):
         CadastroCrianca(self)
 
@@ -44,4 +54,5 @@ class MainWindow(ctk.CTk):
     def abrir_acompanhamento(self):
         Acompanhamento(self)
 
-        
+    def abrir_historico(self):
+        Historico(self)      
