@@ -2,6 +2,9 @@ import customtkinter as ctk
 from database.db import criar_tabelas
 from gui.main_window import MainWindow
 
+ctk.set_widget_scaling(1.0)
+ctk.set_window_scaling(1.0)
+
 def main():
     criar_tabelas()
 
@@ -11,5 +14,6 @@ def main():
     app = MainWindow()
     app.mainloop()
 
+
 if __name__ == "__main__":
-    main()
+    main()    

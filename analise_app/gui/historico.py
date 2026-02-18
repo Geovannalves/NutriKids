@@ -3,6 +3,8 @@ from tkinter import messagebox
 import csv
 from tkinter import filedialog
 from database.db import conectar
+from gui.graficos import Grafico
+
 
 
 class Historico(ctk.CTkToplevel):
@@ -35,6 +37,13 @@ class Historico(ctk.CTkToplevel):
 
         self.criancas = {}
         self.carregar_criancas()
+
+        self.btn_grafico = ctk.CTkButton(
+            self,
+            text="Ver gráfico",
+            command=self.abrir_grafico
+        )
+        self.btn_grafico.pack(pady=10)
 
     def carregar_criancas(self):
         conn = conectar()
@@ -136,3 +145,19 @@ class Historico(ctk.CTkToplevel):
                 writer.writerow(registro)
 
         messagebox.showinfo("Sucesso", "Arquivo exportado com sucesso!")
+
+
+    def abrir_grafico(self):
+
+        nome = self.crianca_combo.get()
+
+        if not nome:
+            return
+
+        id_crianca = self.criancas.get(nome)
+
+        if not id_crianca:
+            return
+
+        Grafico(self, id_crianca)
+

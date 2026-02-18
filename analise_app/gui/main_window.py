@@ -12,6 +12,9 @@ class MainWindow(ctk.CTk):
         self.title("NutriKids")
         self.geometry("900x600")
 
+        self.protocol("WM_DELETE_WINDOW", self.fechar)
+
+
         label = ctk.CTkLabel(
             self,
             text="Acompanhamento Nutricional",
@@ -55,4 +58,8 @@ class MainWindow(ctk.CTk):
         Acompanhamento(self)
 
     def abrir_historico(self):
-        Historico(self)      
+        Historico(self)    
+
+    def fechar(self):
+        self.quit()
+        self.destroy()  
